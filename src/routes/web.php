@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
 
 /*
@@ -22,7 +23,9 @@ Route::get('/', function () {
 
 
 // ホームページ
-Route::get('/', [ShopController::class, 'index'])->name('index');
+Route::get('/', [ShopController::class, 'index']);
+// 飲食店詳細ページ
+Route::get('/shop/{id}', [ShopController::class, 'show'])->name('shop.detail');
 // Thanksページ
 Route::get('/thanks', [ShopController::class, 'thanks'])->name('thanks');
 // 予約完了ページ

@@ -1,0 +1,33 @@
+.shop-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.shop-item {
+    flex: 1 1 calc(25% - 16px);
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 16px;
+    text-align: center;
+}
+
+.shop-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.shop-item h2 {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+.shop-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+.shop-item a {
+    text-decoration: none;
+    color: inherit;
+}

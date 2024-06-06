@@ -5,4 +5,9 @@
 @endsection
 
 @section('content')
+    <!-- ウェルカムメッセージ -->
+
+    <!-- 予約状況コンテンツ -->
+
+    <!-- お気に入りコンテンツ -->
 @endsection
