@@ -4,17 +4,15 @@
     justify-content: space-between;
 }
 
-.shop-detail-content, .shop-reservation-form {
-    width: 48%; /* 左右半分の幅に設定 */
-}
-
 .shop-detail-content {
+    width: 48%; /* 左右半分の幅に設定 */
     padding-right: 10px; /* 内側の余白を追加 */
 }
 
-.shop-reservation-form {
+.reservation-content {
+    width: 48%; /* 左右半分の幅に設定 */
+    padding-left: 10px; /* 内側の余白を追加 */
     border-left: 1px solid #ddd; /* 左側に境界線を追加（オプション） */
-    padding-left: 20px; /* 内側の余白を追加（オプション） */
 }
 
 .shop-image {

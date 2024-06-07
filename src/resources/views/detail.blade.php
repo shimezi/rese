@@ -21,7 +21,21 @@
                 {{ $shop->detail }}
             </div>
         </div>
-        <div class="reservation-content">
-
+        <div class="reservation-form_content">
+            <h1 class="header">予約</h1>
+            <form action="{{ route('reservation.store') }}" method="POST">
+                @csrf
+                <div class="reservation-form_group">
+                    <input type="date" id="date" name="date" placeholder="2021/4/01" value="{{ old('date') }}">
+                </div>
+                <div class="reservation-form_group">
+                    <input type="time" id="time" name="time" placeholder="17:00" value="{{ old('time') }}">
+                </div>
+                <div class="reservation-form_group">
+                    <input type="number_of_people" id="number_of_people" name="number_of_people" placeholder="1人"
+                        value="{{ old('number_of_people') }}">
+                </div>
+                <button type="submit">予約する</button>
+            </form>
         </div>
     @endsection

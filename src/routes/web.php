@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::get('/thanks', [ShopController::class, 'thanks'])->name('thanks');
 Route::get('/done', [ShopController::class, 'done'])->name('dome');
 // マイページ
 Route::get('/mypage', [ShopController::class, 'mypage'])->name('mypage');
+
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 
 Route::middleware('auth')->group(function () {
 });
