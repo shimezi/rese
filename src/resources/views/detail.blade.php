@@ -33,7 +33,7 @@
                 </div>
                 <div class="reservation-form_group">
                     <input type="number_of_people" id="number_of_people" name="number_of_people" placeholder="1人"
-                        value="{{ old('number_of_people') }}">
+                        value="{{ old('number_of_people') }}" required>
                 </div>
                 <button type="submit">予約する</button>
             </form>

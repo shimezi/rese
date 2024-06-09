@@ -13,22 +13,33 @@
 </head>
 
 <body>
-    <header>
-        <!-- ハンバーガーメニュー -->
-        <div class="hamburger-menu">
-            <input type="checkbox" id="check">
-            <lavel for="check" class="hamburger">
-                <span></span>
-            </lavel>
-            <div id="menu">
-                <a href="Home"></a>
-                <a href="Registration"></a>
-                <a href="Login"></a>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">Rese</a>
             </div>
+            <nav class="navigation">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-button">All area</a>
+                        <div class="dropdown-content">
+                            @foreach ($areas as $area)
+                                <a href="{{ route('shop.area', ['id' => $area->id]) }}">{{ $area->name }}</a>
+                            @endforeach
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-button">All genre</a>
+                        <div class="dropdown-content">
+                            @foreach ($genres as $genre)
+                                <a href="{{ route('shop.genre', ['id' => $genre->id]) }}">{{ $genre->name }}</a>
+                            @endforeach
+                        </div>
+                    </li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- サイトタイトル -->
-        <div class="logo">Rese</div>
-        <!-- ナビ -->
     </header>
     <main>
         @yield('content')

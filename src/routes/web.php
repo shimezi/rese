@@ -23,10 +23,16 @@ Route::get('/', function () {
 */
 
 
-// ホームページ
-Route::get('/', [ShopController::class, 'index']);
+// ショップ一覧ページ
+Route::get('/', [ShopController::class, 'index'])->name('index');
+
+// エリアごとの検索結果ページ
+Route::get('/shop/area/{id}', [ShopController::class, 'searchArea'])->name('shop.area');
+
+// ジャンルごとの検索結果ページ
+Route::get('/shop/genre/{id}', [ShopController::class, 'searchGenre'])->name('shop.genre');
 // 飲食店詳細ページ
-Route::get('/shop/{id}', [ShopController::class, 'show'])->name('shop.detail');
+Route::get('/shop/{id}', [ShopController::class, 'show'])->name('detail');
 // Thanksページ
 Route::get('/thanks', [ShopController::class, 'thanks'])->name('thanks');
 // 予約完了ページ

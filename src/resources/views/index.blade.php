@@ -8,7 +8,7 @@
     <div class="shop-list">
         @foreach ($shops as $shop)
             <div class="shop-item">
-                <a href="{{ route('shop.detail', ['id' => $shop->id]) }}">
+                <a href="{{ route('detail', ['id' => $shop->id]) }}">
                     <img src="{{ asset($shop->image_url) }}" alt="{{ $shop->name }}">
                     <h2>{{ $shop->name }}</h2>
                     <!-- ハッシュタグの表示 -->
