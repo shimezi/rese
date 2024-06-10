@@ -15,6 +15,43 @@
 <body>
     <header class="header">
         <div class="header-container">
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-button_check">
+                <label for="menu-button_check" class="menu-button"><span></span></label>
+                <!--
+                @auth
+                            <div class="menu-content">
+                                <ul>
+                                    <li>
+                                        <a href="/">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Logout</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Mypage</a>
+                                    </li>
+                                </ul>
+                            </div>
+                @endauth
+                    -->
+                <!-- 未ログインユーザー -->
+                @guest
+                    <div class="menu-content">
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/register">Registration</a>
+                            </li>
+                            <li>
+                                <a href="/login">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                @endguest
+            </div>
             <div class="logo">
                 <a href="/">Rese</a>
             </div>
