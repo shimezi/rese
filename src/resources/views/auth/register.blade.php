@@ -9,7 +9,8 @@
         <div class="register-header">
             <p>register</p>
         </div>
-        <div class="register-form">
+        <form class="register-form" method="POST" action="{{ route('register') }}">
+            @csrf
             <div class="register-form_group">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <input type="username" placeholder="username">
@@ -23,7 +24,7 @@
                 <input type="password" placeholder="password">
             </div>
             <button type="submit">登録</button>
-        </div>
+        </form>
 
     </div>
 @endsection
