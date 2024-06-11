@@ -20,19 +20,19 @@
                 <label for="menu-button_check" class="menu-button"><span></span></label>
                 <!--
                 @auth
-                            <div class="menu-content">
-                                <ul>
-                                    <li>
-                                        <a href="/">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Logout</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Mypage</a>
-                                    </li>
-                                </ul>
-                            </div>
+                                                    <div class="menu-content">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/">Home</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Logout</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Mypage</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                 @endauth
                     -->
                 <!-- 未ログインユーザー -->
@@ -40,27 +40,27 @@
                     <div class="menu-content">
                         <ul>
                             <li>
-                                <a href="/">Home</a>
+                                <a href="{{ route('index') }}">Home</a>
                             </li>
                             <li>
-                                <a href="/register">Registration</a>
+                                <a href="{{ route('register') }}">Registration</a>
                             </li>
                             <li>
-                                <a href="/login">Login</a>
+                                <a href="{{ route('login') }}">Login</a>
                             </li>
                         </ul>
                     </div>
                 @endguest
             </div>
             <div class="logo">
-                <a href="/">Rese</a>
+                <a href="{{ route('index') }}">Rese</a>
             </div>
             <nav class="navigation">
                 <ul>
                     <li class="dropdown">
                         <a href="#" class="dropdown-button">All area</a>
                         <div class="dropdown-content">
-                            @foreach ($areas as $area)
+                            @foreach ($areas ?? [] as $area)
                                 <a href="{{ route('shop.area', ['id' => $area->id]) }}">{{ $area->name }}</a>
                             @endforeach
                         </div>
@@ -68,7 +68,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-button">All genre</a>
                         <div class="dropdown-content">
-                            @foreach ($genres as $genre)
+                            @foreach ($genres ?? [] as $genre)
                                 <a href="{{ route('shop.genre', ['id' => $genre->id]) }}">{{ $genre->name }}</a>
                             @endforeach
                         </div>

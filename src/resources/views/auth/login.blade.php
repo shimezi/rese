@@ -9,7 +9,8 @@
         <div class="login-header">
             <p>login</p>
         </div>
-        <div class="login-form">
+        <form class="login-form" method="POst" action="{{ route('login') }}">
+            @csrf
             <div class="login-form_group">
                 <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                 <input type="email" placeholder="email">
@@ -19,6 +20,6 @@
                 <input type="password" placeholder="password">
             </div>
             <button type="submit">ログイン</button>
-        </div>
+        </form>
     </div>
 @endsection
