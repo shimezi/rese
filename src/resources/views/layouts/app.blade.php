@@ -18,24 +18,25 @@
             <div class="hamburger-menu">
                 <input type="checkbox" id="menu-button_check">
                 <label for="menu-button_check" class="menu-button"><span></span></label>
-                <!--
                 @auth
-                                                    <div class="menu-content">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="/">Home</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">Logout</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">Mypage</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                    <div class="menu-content">
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link">Logout</button>
+                                </form>
+                            </li>
+                            <li>
+                                <a href="#">Mypage</a>
+                            </li>
+                        </ul>
+                    </div>
                 @endauth
-                    -->
-                <!-- 未ログインユーザー -->
                 @guest
                     <div class="menu-content">
                         <ul>

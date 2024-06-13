@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class RegisterRequest extends FormRequest
 {
     /**
@@ -24,7 +25,9 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required' | 'string' | 'max:191',
+            'email' => 'required' | 'email' | 'unique:email' | 'string' | 'max:191',
+            'password' => 'required' | 'min:8' | 'max:191',
         ];
     }
 }
