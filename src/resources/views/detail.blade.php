@@ -21,21 +21,31 @@
                 {{ $shop->detail }}
             </div>
         </div>
-        <div class="reservation-form_content">
+        <!-- 予約フォーム -->
+        <div class="reservation-content">
             <h1 class="header">予約</h1>
-            <form action="{{ route('reservation.store') }}" method="POST">
+            <form class="reservation-form" method="POST" action="{{ route('reservation.store') }}">
                 @csrf
+                <!-- Hidden field for shop_id with class -->
+                <input class="hidden-input" type="hidden" name="shop_id" value="{{ $shop->id }}">
+
                 <div class="reservation-form_group">
-                    <input type="date" id="date" name="date" placeholder="2021/4/01" value="{{ old('date') }}">
+                    <label class="reservation-form_label sr-only" for="date">Date</label>
+                    <input class="reservation-form_input" type="date" name="date" id="date" placeholder="Date"
+                        value="{{ old('date') }}" required>
                 </div>
                 <div class="reservation-form_group">
-                    <input type="time" id="time" name="time" placeholder="17:00" value="{{ old('time') }}">
+                    <label class="reservation-form_label sr-only" for="time">Time</label>
+                    <input class="reservation-form_input" type="time" name="time" id="time" placeholder="Time"
+                        value="{{ old('time') }}" required>
                 </div>
                 <div class="reservation-form_group">
-                    <input type="number_of_people" id="number_of_people" name="number_of_people" placeholder="1人"
-                        value="{{ old('number_of_people') }}" required>
+                    <label class="reservation-form_label sr-only" for="guests">Number of Guests</label>
+                    <input class="reservation-form_input" type="number" name="number_of_people" id="guests"
+                        placeholder="1人" value="{{ old('number_of_people') }}" min="1" required>
                 </div>
-                <button type="submit">予約する</button>
+                <button type="submit">Reserve</button>
             </form>
         </div>
-    @endsection
+    </div>
+@endsection

@@ -1,0 +1,28 @@
+.reservation-content {
+    margin-top: 20px;
+}
+
+.reservation-detail {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reservation-detail p {
+    margin: 5px 0;
+}
+
+.reservation-label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.icon i {
+    margin-left: 5px;
+}

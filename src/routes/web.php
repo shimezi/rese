@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,14 +34,11 @@ Route::get('/shop/area/{id}', [ShopController::class, 'searchArea'])->name('shop
 Route::get('/shop/genre/{id}', [ShopController::class, 'searchGenre'])->name('shop.genre');
 // 飲食店詳細ページ
 Route::get('/shop/{id}', [ShopController::class, 'show'])->name('detail');
-// Thanksページ
-Route::get('/thanks', [ShopController::class, 'thanks'])->name('thanks');
-// 予約完了ページ
-Route::get('/done', [ShopController::class, 'done'])->name('dome');
-
 
 Route::middleware('auth')->group(function () {
+    Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->name('reservation.confirm');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::get('/thanks', [ReservationController::class, 'thanks'])->name('thanks');
     // マイページ
-    Route::get('/mypage', [ShopController::class, 'mypage'])->name('mypage');
+    Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
 });

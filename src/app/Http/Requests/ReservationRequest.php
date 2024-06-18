@@ -27,6 +27,7 @@ class ReservationRequest extends FormRequest
             'date' => 'required',
             'time' => 'required',
             'number_of_people' => 'required',
+            'shop_id' => 'required|exists:shops,id',
         ];
     }
 }
