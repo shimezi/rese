@@ -26,4 +26,22 @@
         @endif
     </div>
     <!-- お気に入りコンテンツ -->
+    <div class="favourite-content">
+        <h2>お気に入り店舗</h2>
+        @foreach ($favourites as $favourite)
+            @if ($favourite->shop)
+                <div class="shop-item">
+                    <a href="{{ route('detail', ['id' => $favourite->shop->id]) }}">
+                        <img src="{{ asset($favourite->shop->image_url) }}" alt="{{ $favourite->shop->name }}">
+                        <h2>{{ $favourite->shop->name }}</h2>
+                        <!-- ハッシュタグの表示 -->
+                        <div class="shop-tags">
+                            <span class="shop-tag">#{{ $favourite->shop->area->name }}</span>
+                            <span class="shop-tag">#{{ $favourite->shop->genre->name }}</span>
+                        </div>
+                    </a>
+                </div>
+            @endif
+        @endforeach
+    </div>
 @endsection

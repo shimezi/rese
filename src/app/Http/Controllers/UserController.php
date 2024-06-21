@@ -13,7 +13,13 @@ class UserController extends Controller
         // ログインユーザーの予約データを取得
         $reservations = Reservation::where('user_id', Auth::id())->get();
 
-        // 予約データをビューに渡す
-        return view('mypage', ['reservations' => $reservations]);
+        // 現在認証されているユーザーを取得
+        $user = Auth::user();
+
+        // ユーザーのお気に入り店舗のリストを取得
+        $favourites = $user->favourites()->with('shop')->get();
+
+        // 予約データとお気に入りデータをビューに渡す
+        return view('mypage', compact('user', 'reservations', 'favourites'));
     }
 }

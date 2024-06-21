@@ -5,6 +5,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FavouriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->name('reservation.confirm');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
     Route::get('/thanks', [ReservationController::class, 'thanks'])->name('thanks');
-    // マイページ
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
+    Route::post('/favourie', [FavouriteController::class, 'store'])->name('favourite.store');
+    Route::delete('/favourite{id}', [FavouriteController::class, 'destroy'])->name('favourite.destroy');
 });
