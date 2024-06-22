@@ -22,7 +22,7 @@
                     <div class="menu-content">
                         <ul>
                             <li>
-                                <a href="/">Home</a>
+                                <a href="{{ route('index') }}">Home</a>
                             </li>
                             <li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -32,7 +32,7 @@
                                 </form>
                             </li>
                             <li>
-                                <a href="#">Mypage</a>
+                                <a href="{{ route('mypage') }}">Mypage</a>
                             </li>
                         </ul>
                     </div>
