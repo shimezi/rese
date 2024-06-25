@@ -39,12 +39,18 @@ class ReservationController extends Controller
             'number_of_people' => $validated['number_of_people'],
         ]);
 
+        // 店舗IDをセッションに保存
+        session(['shop_id' => $validated['shop_id']]);
+
         return redirect()->route('thanks'); // ルート名を指定してリダイレクト
     }
 
     // thanksページを表示するためのメソッド
     public function thanks()
     {
-        return view('thanks');
+        // セッションから店舗IDを取得
+        $shop_id = session('shop_id');
+
+        return view('thanks', compact('shop_id'));
     }
 }

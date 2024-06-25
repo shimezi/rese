@@ -38,6 +38,38 @@ class ShopController extends Controller
         return view('index', compact('shops', 'genre', 'areas', 'genres')); // 修正
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // キーワードを半角および全角スペースで分割
+        $keywords = preg_split('/\s+|　+/', $query);
+
+        // クエリビルダーインスタンスを初期化
+        $queryBuilder = Shop::query();
+
+        // 各キーワードに対してAND条件を適用
+        foreach ($keywords as $keyword) {
+            $queryBuilder->where(function ($q) use ($keyword) {
+                $q->where('name', 'LIKE', "%{$keyword}%")
+                    ->orWhereHas('area', function ($q) use ($keyword) {
+                        $q->where('name', 'LIKE', "%{$keyword}%");
+                    })
+                    ->orWhereHas('genre', function ($q) use ($keyword) {
+                        $q->where('name', 'LIKE', "%{$keyword}%");
+                    });
+            });
+        }
+
+        // クエリを実行して結果を取得
+        $shops = $queryBuilder->with(['area', 'genre'])->get();
+
+        $areas = Area::all();
+        $genres = Genre::all();
+
+        return view('index', compact('shops', 'areas', 'genres'));
+    }
+
     public function show($id)
     {
         $shop = shop::with(['area', 'genre'])->findOrFail($id);

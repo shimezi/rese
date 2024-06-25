@@ -74,7 +74,13 @@
                             @endforeach
                         </div>
                     </li>
-                    <li><a href="#">Search</a></li>
+                    <!-- 検索フォーム -->
+                    <li>
+                        <form class="search-form" action="{{ route('shops.search') }}" method="GET">
+                            <label for="search" class="sr-only">Search</label>
+                            <input type="search" name="query" id="search" placeholder="🔍Search...">
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </div>

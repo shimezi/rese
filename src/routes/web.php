@@ -33,6 +33,9 @@ Route::get('/shop/area/{id}', [ShopController::class, 'searchArea'])->name('shop
 
 // ジャンルごとの検索結果ページ
 Route::get('/shop/genre/{id}', [ShopController::class, 'searchGenre'])->name('shop.genre');
+// 検索
+Route::get('/shop/search', [ShopController::class, 'search'])->name('shops.search');
+
 // 飲食店詳細ページ
 Route::get('/shop/{id}', [ShopController::class, 'show'])->name('detail');
 
