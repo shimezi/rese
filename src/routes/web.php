@@ -44,6 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
     Route::get('/thanks', [ReservationController::class, 'thanks'])->name('thanks');
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
-    Route::post('/favourie', [FavouriteController::class, 'store'])->name('favourite.store');
+    Route::post('/favourite', [FavouriteController::class, 'store'])->name('favourite.store');
     Route::delete('/favourite{id}', [FavouriteController::class, 'destroy'])->name('favourite.destroy');
 });
