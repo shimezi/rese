@@ -77,19 +77,4 @@ class ShopController extends Controller
         $genres = Genre::all(); // 追加
         return view('detail', compact('shop', 'areas', 'genres')); // 修正箇所: 'shop'
     }
-
-    public function thanks()
-    {
-        return view('thanks');
-    }
-
-    public function done()
-    {
-        return view('done');
-    }
-
-    public function mypage()
-    {
-        return view('mypage');
-    }
 }

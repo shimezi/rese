@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavouriteController;
+use App\Http\Requests\ReservationRequest;
 
 /*
 |--------------------------------------------------------------------------

@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="detail-container">
+
         <div class="detail-content">
             <p class="shop-description">{{ $shop->description }}</p>
             <h1 class="shop-name">{{ $shop->name }}</h1>
@@ -21,58 +22,84 @@
                 {{ $shop->detail }}
             </div>
         </div>
+
+        <!-- エラーメッセージ表示 -->
+        @if ($errors->any())
+            <div class="alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <!-- 予約フォーム -->
         <div class="reservation-content">
             <h1 class="header">予約</h1>
             <form class="reservation-form" method="POST" action="{{ route('reservation.confirm') }}">
                 @csrf
+
                 <!-- Hidden field for shop_id with class -->
-                <input class="hidden-input" type="hidden" name="shop_id" value="{{ $shop->id }}">
+                <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+
+                <!-- 日付の入力フィールド -->
                 <div class="reservation-form__group">
-                    <label class="reservation-form__label sr-only" for="date">Date</label>
-                    <input class="reservation-form__input" type="date" name="date" id="date" placeholder="Date"
-                        value="{{ old('date') }}" required>
+                    <label class="reservation-form__label sr-only" for="date">日付</label>
+                    <input class="reservation-form__input" type="date" name="date" id="date"
+                        placeholder="2021/04/01" min="{{ now()->addDay()->format('Y-m-d') }}" value="{{ old('date') }}">
                 </div>
+
+                <!-- 時間の選択 -->
                 <div class="reservation-form__group">
-                    <label class="reservation-form__label sr-only" for="time">Time</label>
-                    <input class="reservation-form__input" type="time" name="time" id="time" placeholder="Time"
-                        value="{{ old('time') }}" required>
+                    <label class="reservation-form__label sr-only" for="time">時間</label>
+                    <input class="reservation-form__input" type="time" name="time" id="time" placeholder="17:00"
+                        value="{{ old('time') }}">
                 </div>
+
+                <!-- 人数の選択 -->
                 <div class="reservation-form__group">
-                    <label class="reservation-form__label sr-only" for="number_of_people">Number of people</label>
-                    <input class="reservation-form__input" type="number" name="number_of_people" id="number_of_people"
-                        placeholder="1人" value="{{ old('number_of_people') }}" min="1" required>
+                    <label class="reservation-form__label sr-only" for="number_of_people"></label>
+                    <select class="reservation-form__input" type="number" name="number_of_people" id="number_of_people"
+                        placeholder="1人" value="{{ old('number_of_people') }}" min="1" max="10">
+                        <option value="" disabled selected>人数</option>
+                        @for ($i = 1; $i < 11; $i++)
+                            <option value="{{ $i }}">{{ $i }}人</option>
+                        @endfor
+                    </select>
                 </div>
-                <button type="submit" class="reservation-form__button-confirm">確認</button>
+
+                <!-- 予約ボタン -->
+                <button class="reservation-form__button-confirm">確認</button>
             </form>
         </div>
-
-        @if (isset($data))
-            <!-- 確認フィールド -->
-            <div class="confirm-content">
-                <form class="reservation-form" method="POST" action="{{ route('reservation.store') }}">
-                    @csrf
-                    <input class="hidden-input" type="hidden" name="shop_id" value="{{ $data['shop_id'] ?? '' }}">
-                    <input class="hidden-input" type="hidden" name="date" value="{{ $data['date'] ?? '' }}">
-                    <input class="hidden-input" type="hidden" name="time" value="{{ $data['time'] ?? '' }}">
-                    <input class="hidden-input" type="hidden" name="number_of_people"
-                        value="{{ $data['number_of_people'] ?? '' }}">
-
-                    <div class="reservation-form__group">
-                        <label class="reservation-form__label" for="date">Date</label>
-                        <p>{{ $data['date'] ?? '' }}</p>
-                    </div>
-                    <div class="reservation-form__group">
-                        <label class="reservation-form__label" for="time">Time</label>
-                        <p>{{ $data['time'] ?? '' }}</p>
-                    </div>
-                    <div class="reservation-form__group">
-                        <label class="reservation-form__label" for="number_of_people"></label>
-                        <p>{{ $data['number_of_people'] ?? '' }}</p>
-                    </div>
-                    <button type="submit" class="reservation-form__button">予約する</button>
-                </form>
-            </div>
     </div>
+
+    <!-- 確認フィールド -->
+    @if (isset($data))
+        <div class="confirm-content">
+            <form class="confirm-form" method="POST" action="{{ route('reservation.store') }}">
+                @csrf
+                <input class="hidden-input" type="hidden" name="shop_id" value="{{ $data['shop_id'] ?? '' }}">
+                <input class="hidden-input" type="hidden" name="date" value="{{ $data['date'] ?? '' }}">
+                <input class="hidden-input" type="hidden" name="time" value="{{ $data['time'] ?? '' }}">
+                <input class="hidden-input" type="hidden" name="number_of_people"
+                    value="{{ $data['number_of_people'] ?? '' }}">
+
+                <div class="confirm-form__group">
+                    <label class="confirm-form__label" for="date">date</label>
+                    <p>{{ $data['date'] ?? '' }}</p>
+                </div>
+                <div class="confirm-form__group">
+                    <label class="confirm-form__label" for="time">time</label>
+                    <p>{{ $data['time'] ?? '' }}</p>
+                </div>
+                <div class="confirm-form__group">
+                    <label class="confirm-form__label" for="number_of_people"></label>
+                    <p>{{ $data['number_of_people'] ?? '' }}</p>
+                </div>
+                <button type="submit" class="reservation-form__button">予約</button>
+            </form>
+        </div>
     @endif
 @endsection
