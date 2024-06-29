@@ -36,6 +36,8 @@ Laravel v8.83.8 (PHP v7.4.9)<br>
 
 ## テーブル設計
 
+![テーブル](img/readme/table.png)
+
 ## ER 図
 
 # 環境構築
