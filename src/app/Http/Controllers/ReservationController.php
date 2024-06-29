@@ -8,6 +8,12 @@ use App\Models\Reservation;
 use App\Models\Shop;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Support\Facades\Auth;
+use BaconQrCode\Renderer\ImageRenderer;
+use BaconQrCode\Renderer\Image\SvgImageBackEnd;
+use BaconQrCode\Renderer\Image\PngImageBackEnd;
+use BaconQrCode\Writer;
+use BaconQrCode\Renderer\RendererStyle\RendererStyle;
+use BaconQrCode\Renderer\Image\ImageBackEndInterface;
 use Illuminate\Support\Facades\Log;
 
 class ReservationController extends Controller
@@ -61,4 +67,70 @@ class ReservationController extends Controller
         log::info('Thanks method called.');
         return view('thanks');
     }
+
+
+    
+    /*public function show($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+
+        // サンプルデータを使用してQRコードを生成
+        $data = "This is a sample QR code.";
+
+        // レンダラーの設定
+        $renderer = new ImageRenderer(
+            new RendererStyle(400),
+            new SvgImageBackEnd()
+        );
+
+        // QRコードの生成
+        $writer = new Writer($renderer);
+        $outputImage = $writer->writeString($data);
+
+        // QRコードをbase64エンコードしてビューに渡す
+        $qrCode = base64_encode($outputImage);
+
+        // デバッグ
+        if ($qrCode) {
+            \Log::info('QRコード生成成功');
+        } else {
+            \Log::error('QRコード生成失敗');
+        }
+
+        // 予約データとQRコードをビューに渡す
+        return view('mypage', ['reservation' => $reservation, 'qrCode' => $qrCode]);
+    }*/
+    
+
+    public function showSample()
+    {
+        \Log::info('QrCodeController@showSample called'); // メソッドが呼ばれたことをログに記録
+
+        // サンプルデータを設定
+        $data = "This is a sample QR code.";
+
+        // レンダラーの設定
+        $renderer = new ImageRenderer(
+            new RendererStyle(400),
+            new SvgImageBackEnd()
+        );
+
+        // QRコードの生成
+        $writer = new Writer($renderer);
+        $outputImage = $writer->writeString($data);
+
+        // QRコードをbase64エンコードしてビューに渡す
+        $qrCode = base64_encode($outputImage);
+
+        // デバッグ
+        if ($qrCode) {
+            \Log::info('QRコード生成成功');
+        } else {
+            \Log::error('QRコード生成失敗');
+        }
+
+        // QRコードをビューに渡す
+        return view('mypage', ['qrCode' => $qrCode]);
+    }
+
 }

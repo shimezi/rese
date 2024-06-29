@@ -36,6 +36,17 @@
         @else
             <p>予約はありません。</p>
         @endif
+
+        <!-- サンプルQRコードの表示 -->
+        <div class="qr-code">
+            <h2>QRコード</h2>
+            @if (isset($qrCode))
+                <img src="data:image/svg+xml;base64, {{ $qrCode }}" alt="QR Code">
+            @else
+                <p>QRコードが生成されていません。</p>
+            @endif
+        </div>
+
     </div>
     <!-- お気に入りコンテンツ -->
     <div class="favourite-content">
