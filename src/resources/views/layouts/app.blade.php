@@ -59,16 +59,20 @@
             <nav class="navigation">
                 <ul>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-button">All area</a>
+                        <!-- 選択されたエリアを表示 -->
+                        <a href="#" class="dropdown-button">{{ $selectedArea->name ?? 'All area' }}</a>
                         <div class="dropdown-content">
+                            <a href="{{ route('index') }}">All area</a>
                             @foreach ($areas ?? [] as $area)
                                 <a href="{{ route('shop.area', ['id' => $area->id]) }}">{{ $area->name }}</a>
                             @endforeach
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-button">All genre</a>
+                        <!-- 選択されたジャンルを表示 -->
+                        <a href="#" class="dropdown-button">{{ $selectedGenre->name ?? 'All genre' }}</a>
                         <div class="dropdown-content">
+                            <a href="{{ route('index') }}">All genre</a>
                             @foreach ($genres ?? [] as $genre)
                                 <a href="{{ route('shop.genre', ['id' => $genre->id]) }}">{{ $genre->name }}</a>
                             @endforeach
@@ -78,7 +82,7 @@
                     <li>
                         <form class="search-form" action="{{ route('shops.search') }}" method="GET">
                             <label for="search" class="sr-only">Search</label>
-                            <input type="search" name="query" id="search" placeholder="🔍Search...">
+                            <input type="search" name="query" id="search" placeholder="Search...">
                         </form>
                     </li>
                 </ul>

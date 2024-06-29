@@ -20,22 +20,20 @@ class ShopController extends Controller
 
     public function searchArea($id)
     {
-        $area = Area::findOrFail($id);
-        $shops = Shop::where('area_id', $id)->with(['area', 'genre'])->get();
-        $areas = Area::all();
+        $shops = Shop::where('area_id', $id)->get();
+        $selectedArea = Area::findOrFail($id);
         $genres = Genre::all();
-
-        return view('index', compact('shops', 'areas', 'areas', 'genres')); // 修正
+        $areas = Area::all();
+        return view('index', compact('shops', 'selectedArea', 'genres', 'areas'));
     }
 
     public function searchGenre($id)
     {
-        $genre = Genre::findOrFail($id);
-        $shops = Shop::where('genre_id', $id)->with(['area', 'genre'])->get();
-        $areas = Area::all();
+        $shops = Shop::where('genre_id', $id)->get();
+        $selectedGenre = Genre::findOrFail($id);
         $genres = Genre::all();
-
-        return view('index', compact('shops', 'genre', 'areas', 'genres')); // 修正
+        $areas = Area::all();
+        return view('index', compact('shops', 'selectedGenre', 'genres', 'areas'));
     }
 
     public function search(Request $request)
