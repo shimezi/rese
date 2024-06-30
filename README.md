@@ -36,7 +36,7 @@ Laravel v8.83.8 (PHP v7.4.9)<br>
 
 ## テーブル設計
 
-![table](img/readme/table.png)
+![table](https://github.com/shimezi/rese/assets/108146547/a8c282c2-9151-44fe-a7b0-158259bdf0d5)
 
 ## ER 図
 

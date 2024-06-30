@@ -6,7 +6,18 @@
 
 @section('content')
     <div class="thanks-container">
-        <p>ご予約ありがとうございます</p>
-        <a href="{{ route('mypage') }}" class="button">戻る</a>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+        <p>ご予約ありがとうございました。</p>
+        <a href="{{ route('mypage') }}" class="btn btn-primary">戻る</a>
     </div>
 @endsection

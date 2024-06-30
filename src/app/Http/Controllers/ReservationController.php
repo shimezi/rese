@@ -61,15 +61,25 @@ class ReservationController extends Controller
         return redirect()->route('thanks');
     }
 
-    // thanksページを表示するためのメソッド
+    public function cancel($id)
+    {
+        $reservation = Reservation::where('id', $id)
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if ($reservation) {
+            $reservation->delete();
+            return redirect()->route('thanks')->with('success', '予約をキャンセルしました。');
+        }
+
+        return redirect()->route('thanks')->with('error', '予約のキャンセルに失敗しました。');
+    }
+
     public function thanks()
     {
-        log::info('Thanks method called.');
         return view('thanks');
     }
 
-
-    
     /*public function show($id)
     {
         $reservation = Reservation::findOrFail($id);
@@ -100,7 +110,7 @@ class ReservationController extends Controller
         // 予約データとQRコードをビューに渡す
         return view('mypage', ['reservation' => $reservation, 'qrCode' => $qrCode]);
     }*/
-    
+
 
     public function showSample()
     {
@@ -132,5 +142,4 @@ class ReservationController extends Controller
         // QRコードをビューに渡す
         return view('mypage', ['qrCode' => $qrCode]);
     }
-
 }

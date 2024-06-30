@@ -7,9 +7,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Requests\ReservationRequest;
-use App\Http\Controllers\QrCodeController;
-use PharIo\Manifest\Email;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,6 +46,7 @@ Route::get('/shop/{id}', [ShopController::class, 'show'])->name('detail');
 Route::middleware(['auth'])->group(function () {
     Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->name('reservation.confirm');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::post('/reservation/cancel/{id}', [ReservationController::class, 'cancel'])->name('reservation.cancel');
     Route::get('/reservations/{id}', [ReservationController::class, 'show']); //QR
     Route::get('/thanks', [ReservationController::class, 'thanks'])->name('thanks');
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
