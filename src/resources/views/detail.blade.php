@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="detail-container">
+    <div class="detail-container no-navigation"> <!-- クラスを追加 -->
 
         <div class="detail-content">
             <p class="shop-description">{{ $shop->description }}</p>

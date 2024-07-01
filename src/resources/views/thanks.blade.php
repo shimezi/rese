@@ -17,6 +17,8 @@
                 {{ session('error') }}
             </div>
         @endif
-        <a href="{{ route('mypage') }}" class="mypage-button">戻る</a>
+        <a href="{{ route('mypage') }}">
+            <button class="mypage-button">戻る</button>
+        </a>
     </div>
 @endsection

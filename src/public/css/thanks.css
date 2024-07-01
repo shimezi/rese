@@ -1,33 +1,53 @@
 .thanks-container {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 900px; /* 幅を610pxに設定 */
-    height: 610px; /* 高さを900pxに設定 */
-    text-align: center;
-    margin: 50px auto; /* コンテンツを中央に配置 */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 380px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 100px; /* 画面の中央に近づける */
+}
+
+.message-container {
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 50%; /* 上部50%を占める */
+    width: 100%;
 }
 
-.thanks-message {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 20px;
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%; /* 下部50%を占める */
+    width: 100%;
 }
 
-.thanks-button {
-    background-color: #2979ff;
+.alert {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mypage-button {
+    width: 47px;
+    height: 26px;
+    background-color: #3560F6;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 3px;
+    font-size: 13px;
     cursor: pointer;
+    text-align: center;
+    line-height: 26px; /* ボタン内のテキストを中央に配置 */
 }
 
-.thanks-button:hover {
-    background-color: #1565c0;
+.mypage-button:hover {
+    background-color: #2a4eb8;
 }

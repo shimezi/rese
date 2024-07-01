@@ -1,4 +1,14 @@
-/* resources/css/app.css */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,7 +18,15 @@ body {
 .header {
     background-color: #ffffff;
     color: white;
-    padding: 15px 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100px;
+    display: flex;
+    align-items: center;
 }
 
 .header-container {
@@ -18,19 +36,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 80px;
 }
 
 .menu-button {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
     display: flex;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     justify-content: center;
     align-items: center;
     z-index: 90;
-    background-color: #3584bb;
+    background-color: #3560F6;
 }
 
 .menu-button span,
@@ -54,7 +74,7 @@ body {
 }
 
 #menu-button_check:checked ~ .menu-button span {
-    background-color: rgba(255, 255, 255, 0); /*メニューオープン時は真ん中の線を透明にする*/
+    background-color: rgba(255, 255, 255, 0);
 }
 
 #menu-button_check:checked ~ .menu-button span::before {
@@ -72,21 +92,31 @@ body {
 }
 
 #menu-button_check:checked ~ .menu-content {
-    right: 0; /*メニューを画面内へ*/
+    right: 0;
 }
 .menu-content {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     position: fixed;
     top: 0;
-    right: 100%; /*rightの値を変更してメニューを画面外へ*/
+    right: 100%;
     z-index: 80;
-    background-color: #3584bb;
-    transition: all 0.5s; /*アニメーション設定*/
+    background-color: #EBEBEB;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .menu-content ul {
+    width: 100%;
     padding: 70px 10px 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .menu--content ul li {
@@ -97,9 +127,10 @@ body {
 .menu-content ul li a {
     display: block;
     width: 100%;
-    font-size: 15px;
+    font-size: 20px;
     box-sizing: border-box;
-    color: #ffffff;
+    color: #3560F6;
+    font-weight: bold;
     text-decoration: none;
     padding: 9px 15px 10px 0;
     position: relative;
@@ -116,11 +147,35 @@ body {
     left: 11px;
     top: 16px;
 }
+
+.button.button-link {
+    font-size: 20px;
+    color: #3560F6;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 135px;
+    transform: translateY(-50%);
+}
+
 .logo a {
-    color: black;
+    color: #3560F6;
     text-decoration: none;
     font-size: 24px;
     font-weight: bold;
+}
+
+.navigation {
+    margin-left: auto;
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    transform: translateY(-50%);
 }
 
 .navigation ul {
@@ -139,6 +194,7 @@ body {
     color: black;
     text-decoration: none;
     font-size: 16px;
+    font-weight: bold;
 }
 
 .navigation a:hover {

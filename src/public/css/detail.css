@@ -1,39 +1,155 @@
-/* styles.css */
-.shop-detail-container {
-    display: flex;
-    justify-content: space-between;
+.navigation {
+    display: none;
 }
 
-.shop-detail-content {
-    width: 48%; /* 左右半分の幅に設定 */
-    padding-right: 10px; /* 内側の余白を追加 */
+.detail-container {
+    width: 1040px;
+    margin: 0 auto;
+    display: block;
 }
 
-.reservation-content {
-    width: 48%; /* 左右半分の幅に設定 */
-    padding-left: 10px; /* 内側の余白を追加 */
-    border-left: 1px solid #ddd; /* 左側に境界線を追加（オプション） */
+.detail-content {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.shop-description {
+    font-size: 18px;
+    color: #333;
+}
+
+.shop-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .shop-image {
-    width: 100%; /* 親要素の幅に合わせる */
-    height: auto; /* アスペクト比を維持 */
-    display: block; /* ブロック要素として表示 */
-    margin: 0 auto; /* 中央寄せ */
-}
-
-.shop-detail-info {
-    margin-top: 20px; /* 上部にマージンを追加 */
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .shop-tags {
-    margin-top: 10px; /* ハッシュタグの上部マージンを追加 */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .shop-tag {
-    display: inline-block;
-    background-color: #e0e0e0; /* ハッシュタグの背景色 */
+    background-color: #3560F6;
+    color: #fff;
     padding: 5px 10px;
-    margin-right: 5px; /* ハッシュタグの間に余白を追加 */
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.shop-detail-info {
+    font-size: 16px;
+    color: #666;
+}
+
+.alert-danger {
+    width: 100%;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
     border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.reservation-content {
+    width: 100%;
+    background-color: #3560F6;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.reservation-form__group {
+    margin-bottom: 15px;
+}
+
+.reservation-form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.reservation-form__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.reservation-form__button-confirm {
+    background-color: #3560F6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.reservation-form__button-confirm:hover {
+    background-color: #2a4eb8;
+}
+
+.confirm-content {
+    width: 100%;
+    background-color: #5580F7;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.confirm-form__group {
+    margin-bottom: 15px;
+}
+
+.confirm-form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.confirm-form__button {
+    background-color: #3560F6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.confirm-form__button:hover {
+    background-color: #2a4eb8;
+}
+
+.guest-message {
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.guest-message a {
+    color: #3560F6;
+    text-decoration: underline;
 }
