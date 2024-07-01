@@ -1,6 +1,7 @@
 # アプリケーション名
 
 rese
+![index](https://github.com/shimezi/rese/assets/108146547/0886576c-5b82-4176-92d5-2b394f3dc4be)
 
 ## 作成した目的
 
@@ -43,6 +44,8 @@ MySQL 8.0.26<br>
 ![table](https://github.com/shimezi/rese/assets/108146547/a8c282c2-9151-44fe-a7b0-158259bdf0d5)
 
 ## ER 図
+
+![rese](https://github.com/shimezi/rese/assets/108146547/942df0cc-b486-4d83-a5ee-73db7a654517)
 
 # 環境構築
 
