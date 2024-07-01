@@ -1,6 +1,6 @@
 # アプリケーション名
 
-rese
+Rese
 ![index](https://github.com/shimezi/rese/assets/108146547/0886576c-5b82-4176-92d5-2b394f3dc4be)
 
 ## 作成した目的
@@ -48,5 +48,40 @@ MySQL 8.0.26<br>
 ![rese](https://github.com/shimezi/rese/assets/108146547/942df0cc-b486-4d83-a5ee-73db7a654517)
 
 # 環境構築
+
+Dockerビルド
+
+1.git clone git@github.com:shimezi/rese.git
+2.DockerDesktopアプリを立ち上げる
+3.docker-compose up -d --build
+
+Laravel環境構築<br>
+1.docker-compose exec php bash<br>
+2.composer install<br>
+3.「.env.example」を 「.env」に名称変更。<br>
+4.「.env」の変更点は以下<br><br>
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
+
+5.アプリケーションキーの作成<br>
+php artisan key:generate<br>
+6.マイグレーションの実行<br>
+php artisan migrate<br>
+7.シーディングの実行<br>
+php artisan db:seed<br>
+8.コントローラーの作成<br>
+php artisan make:controller<br>
+9.モデルの作成<br>
+php artisan make:model<br>
+10.リクエストファイルの作成<br>
+php artisan make:request<br>
+11.ビューファイルを作成<br>
+touch ○○.blade.php<br>
+12.cssファイルを作成<br>
+touch ○○.css<br>
 
 ## 他に記載することがあれば記述する
