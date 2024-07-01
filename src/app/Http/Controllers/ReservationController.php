@@ -58,7 +58,7 @@ class ReservationController extends Controller
 
         log::info('Reservation created: ', $reservation->toArray());
 
-        return redirect()->route('thanks');
+        return redirect()->route('thanks')->with('success', 'ご予約ありがとうございます。');
     }
 
     public function cancel($id)
@@ -69,10 +69,10 @@ class ReservationController extends Controller
 
         if ($reservation) {
             $reservation->delete();
-            return redirect()->route('thanks')->with('success', '予約をキャンセルしました。');
+            return redirect()->route('thanks')->with('error', '予約をキャンセルしました。');
         }
 
-        return redirect()->route('thanks')->with('error', '予約のキャンセルに失敗しました。');
+        return redirect()->route('thanks')->with('error', 'キャンセルする予約が見つかりませんでした。');
     }
 
     public function thanks()
@@ -111,7 +111,7 @@ class ReservationController extends Controller
         return view('mypage', ['reservation' => $reservation, 'qrCode' => $qrCode]);
     }*/
 
-
+    /*
     public function showSample()
     {
         \Log::info('QrCodeController@showSample called'); // メソッドが呼ばれたことをログに記録
@@ -142,4 +142,5 @@ class ReservationController extends Controller
         // QRコードをビューに渡す
         return view('mypage', ['qrCode' => $qrCode]);
     }
+    */
 }

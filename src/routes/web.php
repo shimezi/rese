@@ -46,7 +46,7 @@ Route::get('/shop/{id}', [ShopController::class, 'show'])->name('detail');
 Route::middleware(['auth'])->group(function () {
     Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->name('reservation.confirm');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
-    Route::post('/reservation/cancel/{id}', [ReservationController::class, 'cancel'])->name('reservation.cancel');
+    Route::delete('/reservation/{id}/cancel', [ReservationController::class, 'cancel'])->name('reservation.cancel');
     Route::get('/reservations/{id}', [ReservationController::class, 'show']); //QR
     Route::get('/thanks', [ReservationController::class, 'thanks'])->name('thanks');
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');

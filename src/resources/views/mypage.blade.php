@@ -31,6 +31,12 @@
                     </p>
                     <p><span class="reservation-label">Time</span>{{ date('H:i', strtotime($reservation->check_in)) }}</p>
                     <p><span class="reservation-label">Number</span>{{ $reservation->number_of_people }}人</p>
+                    <!-- キャンセルボタン -->
+                    <form action="{{ route('reservation.cancel', $reservation->id) }}" method="POST" class="cancel-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">キャンセル</button>
+                    </form>
                 </div>
             @endforeach
         @else

@@ -9,7 +9,9 @@ rese
 
 ## アプリケーション URL
 
-https://github.com/shimezi/rese<br>
+github : https://github.com/shimezi/rese<br>
+開発環境 : http//localhost/<br>
+phpMyAdmin : http//localhost:8080/<br>
 
 ## 他のリポジトリ<br>
 
@@ -32,7 +34,9 @@ https://github.com/shimezi/rese<br>
 
 ## 仕様技術（実行環境）
 
-Laravel v8.83.8 (PHP v7.4.9)<br>
+PHP 7.4.9<br>
+Laravel 8.83.8<br>
+MySQL 8.0.26<br>
 
 ## テーブル設計
 
