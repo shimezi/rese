@@ -33,10 +33,11 @@
                                 <button type="submit" class="favourite-button">お気に入り</button>
                             </form>
                         @else
-                            <form action="{{ route('favourite.destroy', $shop->id) }}" method="POST" class="favourite-fotm">
+                            <form action="{{ route('favourite.destroy', $shop->id) }}" method="POST"
+                                class="shop-item__favourite-fotm">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="favourite-buitton">削除</button>
+                                <button type="submit" class="shop-item__favourite-buitton">削除</button>
                             </form>
                         @endif
                     @endauth

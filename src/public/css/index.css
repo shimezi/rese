@@ -55,17 +55,16 @@
     display: inline-block;
 }
 
-.favourite-form {
-    position: absolute;
-    right: 8px; /* 右からの位置を指定 */
-    bottom: 8px; /* 下からの位置を指定 */
+.shop-item__favourite-form {
+   
+    text-align: right; /* ボタンを右寄せにする場合 */
 }
 
-.favourite-button {
+.shop-item__favourite-button {
     padding: 0.3em 0.5em;
     background-color: #ff6347; /* 目立つ色 */
-    color: white;
-    border: 1px solid #ccc;
+    color: black;
+    border: 1px solid black;
     cursor: pointer;
     font-size: 0.9em;
 }
